@@ -36,15 +36,15 @@ public class CardOrderTest {
     }
         
     @Test
-    void shouldTestHappyPath() {
+    void shouldSendSuccessfulForm() {
         driver.get("http://localhost:9999");
-        driver.findElement(cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов");
-        driver.findElement(cssSelector("[type='tel']")).sendKeys("+79119111111");
-        driver.findElement(By.className("checkbox__box")).click();
-        driver.findElement(By.tagName("button")).click();
-        String actualText = driver.findElement(cssSelector("[data-test-id=order-success]")).getText();
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText.trim());
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Иванов");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79119626262");
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+        driver.findElement(By.cssSelector("button")).click();
+        String text = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
+        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+        assertEquals(expected, text);
     }
-
 }
 
