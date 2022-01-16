@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.openqa.selenium.By.cssSelector;
 
 public class CallbackTest {
-    private WebDriver driver;
+    public WebDriver driver;
 
     @BeforeAll
     static void setUpAll() {
