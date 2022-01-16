@@ -5,17 +5,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-//import org.junit.jupiter.api.Test;
-//import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.openqa.selenium.By.cssSelector;
-
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.openqa.selenium.By.cssSelector;
 
 public class CallbackTest {
     private WebDriver driver;
