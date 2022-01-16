@@ -12,21 +12,21 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CallbackTest {
-    public WebDriver driver;
+public class CardOrderTest {
+    private WebDriver driver;
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+        WebDriverManager.chromedriver().setup(); // не надо качивать драйвер и вкладывать в отдельную папку
     }
 
     @BeforeEach
-        //creating driver object
     void setUp() {
-        ChromeOptions options = new ChromeOptions();
+        ChromeOptions options = new ChromeOptions(); // режим headless-отключаем графический интерфейс
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:9999");
     }
 
     @AfterEach
@@ -34,9 +34,10 @@ public class CallbackTest {
         driver.quit();
         driver = null;
     }
-
+        
     @Test
     void shouldTestHappyPath() {
+        driver.get("http://localhost:9999");
         driver.findElement(cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов");
         driver.findElement(cssSelector("[type='tel']")).sendKeys("+79119111111");
         driver.findElement(By.className("checkbox__box")).click();
