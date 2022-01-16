@@ -36,7 +36,7 @@ public class CallbackTest {
     }
 
     @Test
-    void shouldTestHappyPath() throws InterruptedException {
+    void shouldTestHappyPath() {
         driver.findElement(cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов");
         driver.findElement(cssSelector("[type='tel']")).sendKeys("+79119111111");
         driver.findElement(By.className("checkbox__box")).click();
