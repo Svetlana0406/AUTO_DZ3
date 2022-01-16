@@ -12,8 +12,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CardOrderTest {
-    private WebDriver driver;
+public class CallbackTest {
+    public WebDriverr driver;
 
     @BeforeAll
     static void setUpAll() {
